@@ -3,17 +3,21 @@ import chair from "../../assets/images/chair.png";
 const Banner = () => {
   return (
     <div>
-      <div class="hero min-h-screen">
-        <div class="hero-content flex-col lg:flex-row-reverse">
-          <img src={chair} class="max-w-sm rounded-lg shadow-2xl" />
+      <div className="hero min-h-screen px-0 md:px-10 lg:px-20">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <img src={chair} className="max-w-sm rounded-lg shadow-2xl h-full" />
           <div>
-            <h1 class="text-5xl font-bold">Box Office News!</h1>
-            <p class="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+            <h1 className="text-4xl font-bold">
+              Your New Smile Starts <br /> Here
+            </h1>
+            <p className="py-6">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the
             </p>
-            <button class="btn btn-primary">Get Started</button>
+            <button className="btn text-white bg-gradient-to-r from-cyan-500 to-blue-500 px-3">
+              Get Started
+            </button>
           </div>
         </div>
       </div>
