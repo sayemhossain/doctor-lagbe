@@ -6,7 +6,7 @@ import phone from "../../assets/icons/phone.svg";
 
 const Info = () => {
   return (
-    <div className=" md:px-5 lg:px-10 grid grid-col-1 md:grid-col-2 lg:grid-cols-3 gap-5 mx-auto pb-10">
+    <div className=" md:px-5 lg:px-10 grid grid-col-1 md:grid-col-2 lg:grid-cols-3 gap-5 pb-10">
       <InfoCard
         cardTitle="Opening Hours"
         cardText="Lorem Ipsum is simply dummy text of the pri"
