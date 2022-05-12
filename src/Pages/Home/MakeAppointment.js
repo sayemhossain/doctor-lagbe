@@ -25,7 +25,7 @@ const MakeAppointment = () => {
           look like readable English. Many desktop publishing packages and web
           page
         </p>
-        <PrimaryButton></PrimaryButton>
+        <PrimaryButton>get started</PrimaryButton>
       </div>
     </section>
   );

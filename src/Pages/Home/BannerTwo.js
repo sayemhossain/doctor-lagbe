@@ -20,7 +20,7 @@ const BannerTwo = () => {
               here', making it look like readable English. Many desktop
               publishing packages and web page
             </p>
-            <PrimaryButton></PrimaryButton>
+            <PrimaryButton>get started</PrimaryButton>
           </div>
         </div>
       </div>
