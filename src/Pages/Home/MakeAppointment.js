@@ -6,14 +6,14 @@ import PrimaryButton from "../Shared/PrimaryButton";
 const MakeAppointment = () => {
   return (
     <section
-      className="flex justify-center items-center"
+      className="flex justify-center items-center px-0 md:px-10 lg:px-20 my-10 md:my-20"
       style={{ background: `url(${appointment})` }}
     >
-      <div className="flex-1">
-        <img src={doctor} alt="" />
+      <div className="flex-1 hidden lg:block">
+        <img className="mt-[-100px]" src={doctor} alt="" />
       </div>
-      <div className="flex-1">
-        <h4 className="text-xl text-secondary">Appointment</h4>
+      <div className="flex-1 py-10 px-5">
+        <h4 className="text-xl text-secondary font-bold">Appointment</h4>
         <h2 className="text-2xl font-bold mt-2 text-white">
           Make an appointment Today
         </h2>
