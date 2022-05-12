@@ -1,5 +1,6 @@
 import React from "react";
 import treatment from "../../assets/images/treatment.png";
+
 const BannerTwo = () => {
   return (
     <div>
@@ -10,7 +11,7 @@ const BannerTwo = () => {
             <h1 class="text-4xl font-bold">
               Exceptional Dental <br /> Care, on Your Terms
             </h1>
-            <p class="py-6 pr-0 md:pr-10">
+            <p class="py-6 pr-0 md:pr-5">
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout. The
               point of using Lorem Ipsumis that it has a more-or-less normal
