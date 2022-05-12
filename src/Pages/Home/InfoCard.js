@@ -11,7 +11,7 @@ const InfoCard = ({ img, cardTitle, bgClass }) => {
         </figure>
         <div class="card-body">
           <h2 class="card-title">{cardTitle}</h2>
-          <p>Click the button to listen on Spotiwhy ap.</p>
+          <p>Click the button to listen on Spotiwhy app.</p>
         </div>
       </div>
     </div>
