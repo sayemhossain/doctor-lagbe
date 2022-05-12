@@ -1,5 +1,6 @@
 import React from "react";
 import treatment from "../../assets/images/treatment.png";
+import PrimaryButton from "../Shared/PrimaryButton";
 
 const BannerTwo = () => {
   return (
@@ -19,9 +20,7 @@ const BannerTwo = () => {
               here', making it look like readable English. Many desktop
               publishing packages and web page
             </p>
-            <button class="btn btn-primary text-white bg-gradient-to-r from-cyan-500 to-blue-500 px-3">
-              Get Started
-            </button>
+            <PrimaryButton></PrimaryButton>
           </div>
         </div>
       </div>
