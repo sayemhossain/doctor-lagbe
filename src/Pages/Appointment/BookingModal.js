@@ -1,7 +1,8 @@
 import React from "react";
+import { format } from "date-fns";
 
-const BookingModal = ({ treatment }) => {
-  const { name, solts } = treatment;
+const BookingModal = ({ date, treatment }) => {
+  const { name, slots } = treatment;
   return (
     <div>
       <input type="checkbox" id="booking-modal" class="modal-toggle" />
@@ -17,14 +18,15 @@ const BookingModal = ({ treatment }) => {
           <form action="" className="text-center mt-10">
             <input
               type="text"
-              placeholder="Type here"
               class="input input-bordered w-full max-w-sm mb-5"
+              value={format(date, "PP")}
+              disabled
             />
-            <input
-              type="text"
-              placeholder="Type here"
-              class="input input-bordered w-full max-w-sm mb-5"
-            />
+            <select class="select select-bordered w-full max-w-sm mb-5">
+              {slots?.map((slot) => (
+                <option value={slot}>{slot}</option>
+              ))}
+            </select>
             <input
               type="text"
               placeholder="Full Name"
