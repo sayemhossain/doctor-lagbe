@@ -12,7 +12,7 @@ const Service = ({ service }) => {
             {slots.length ? (
               <span>{slots[0]}</span>
             ) : (
-              <span className="text-red-500 text-sm">No Slot Available</span>
+              <span className="text-red-500 text-sm">Try another date.</span>
             )}
           </p>
           <p className="uppercase text-sm">
