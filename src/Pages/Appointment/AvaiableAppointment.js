@@ -3,10 +3,13 @@ import React from "react";
 
 const AvaiableAppointment = ({ date }) => {
   return (
-    <div className="my-5 md:my-20">
-      <h4 className="text-center text-primary">
-        Available Appointments on {format(date, "PP")}
-      </h4>
+    <div className="my-10 md:my-20">
+      <div>
+        <h4 className="text-center text-secondary">
+          Available Appointments on {format(date, "PP")}
+        </h4>
+      </div>
+      <div></div>
     </div>
   );
 };
