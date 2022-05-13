@@ -7,13 +7,25 @@ const Service = ({ service }) => {
     <div>
       <div class="card lg:max-w-lg bg-base-100 shadow-xl text-center">
         <div class="card-body">
-          <h2 class="card-title mx-auto text-primary">{name}</h2>
+          <h2 class="card-title mx-auto text-primary mb-2">{name}</h2>
+          <p>
+            {slots.length ? (
+              <span>{slots[0]}</span>
+            ) : (
+              <span className="text-red-500 text-sm">No Slot Available</span>
+            )}
+          </p>
           <p className="uppercase text-sm">
             {slots.length}
             {slots.length > 1 ? " spaces" : " space"} available
           </p>
-          <div class="card-actions mx-auto">
-            <PrimaryButton>Book now</PrimaryButton>
+          <div class="card-actions mx-auto mt-3">
+            <button
+              disabled={slots.length === 0}
+              className="btn btn-primary uppercase px-10 text-white"
+            >
+              Book Now
+            </button>
           </div>
         </div>
       </div>
