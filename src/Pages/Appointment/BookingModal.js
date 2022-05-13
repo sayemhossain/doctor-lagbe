@@ -22,23 +22,29 @@ const BookingModal = ({ date, treatment }) => {
               value={format(date, "PP")}
               disabled
             />
-            <select class="select select-bordered w-full max-w-sm mb-5">
+            <select
+              name="slot"
+              class="select select-bordered w-full max-w-sm mb-5"
+            >
               {slots?.map((slot) => (
                 <option value={slot}>{slot}</option>
               ))}
             </select>
             <input
               type="text"
+              name="name"
               placeholder="Full Name"
               class="input input-bordered w-full max-w-sm mb-5"
             />
             <input
               type="text"
+              name="phone"
               placeholder="Phone Number"
               class="input input-bordered w-full max-w-sm mb-5"
             />
             <input
               type="email"
+              name="email"
               placeholder="Email"
               class="input input-bordered w-full max-w-sm mb-5"
             />
