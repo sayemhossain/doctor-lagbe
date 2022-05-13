@@ -22,9 +22,9 @@ const Service = ({ service }) => {
           <div class="card-actions mx-auto mt-3">
             <button
               disabled={slots.length === 0}
-              className="btn btn-primary uppercase px-10 text-white"
+              className="btn btn-primary uppercase px-5 text-white"
             >
-              Book Now
+              Book Appointment
             </button>
           </div>
         </div>
