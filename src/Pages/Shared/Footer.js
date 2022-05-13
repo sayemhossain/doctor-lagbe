@@ -3,9 +3,9 @@ import footer from "../../assets/images/footer.png";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="pt-10">
       <footer
-        className="footer p-10 flex justify-between px-10 md:px-20"
+        className="footer py-10 flex justify-between px-10 md:px-20"
         style={{ background: `url(${footer})`, backgroundSize: "cover" }}
       >
         <div>
