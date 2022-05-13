@@ -3,6 +3,16 @@ import { format } from "date-fns";
 
 const BookingModal = ({ date, treatment }) => {
   const { name, slots } = treatment;
+
+  const handleBooking = (e) => {
+    e.preventDefault();
+
+    const slot = e.target.slot.value;
+    const name = e.target.name.value;
+    const phone = e.target.phone.value;
+    const email = e.target.email.value;
+    console.log(slot, name, phone, email);
+  };
   return (
     <div>
       <input type="checkbox" id="booking-modal" class="modal-toggle" />
@@ -15,7 +25,11 @@ const BookingModal = ({ date, treatment }) => {
             ✕
           </label>
           <h3 class="font-bold text-lg">{name}</h3>
-          <form action="" className="text-center mt-10">
+          <form
+            onSubmit={handleBooking}
+            action=""
+            className="text-center mt-10"
+          >
             <input
               type="text"
               class="input input-bordered w-full max-w-sm mb-5"
