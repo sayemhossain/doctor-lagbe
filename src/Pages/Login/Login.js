@@ -1,6 +1,6 @@
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 
@@ -58,14 +58,51 @@ const Login = () => {
               </label>
             </div>
 
-            <input />
-            {errors.firstName?.type === "required" && "First name is required"}
-
-            <input {...register("lastName", { required: true })} />
-            {errors.lastName && "Last name is required"}
-
-            <input type="submit" />
+            <div class="form-control w-full max-w-xs">
+              <label class="label">
+                <span class="label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                placeholder="Password"
+                class="input input-bordered w-full max-w-xs"
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "Password is required",
+                  },
+                  minLength: {
+                    value: 6,
+                    message: "Must be 6 characters or longer",
+                  },
+                })}
+              />
+              <label class="label">
+                {errors.password?.type === "required" && (
+                  <span class="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <span class="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+              </label>
+            </div>
+            <input
+              className="btn w-full max-w-xs"
+              type="submit"
+              value="Login"
+            />
           </form>
+          <p className="text-sm text-center">
+            New to Doctors Portal?
+            <Link className="text-primary" to="/signup">
+              {" "}
+              Create new account
+            </Link>
+          </p>
           <div className="divider">OR</div>
 
           <button
