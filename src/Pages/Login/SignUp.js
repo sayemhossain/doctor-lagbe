@@ -128,7 +128,7 @@ const SignUp = () => {
                       {errors.password.message}
                     </span>
                   )}
-                  {errors.password?.type === "pattern" && (
+                  {errors.password?.type === "minLength" && (
                     <span class="label-text-alt text-red-500">
                       {errors.password.message}
                     </span>
