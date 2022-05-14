@@ -2,6 +2,7 @@ import React from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -12,6 +13,7 @@ const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
   const {
     register,
@@ -26,10 +28,10 @@ const Login = () => {
     signInWithEmailAndPassword(data.email, data.password);
   };
 
-  if (loading || gLoading) {
+  if (loading || gLoading || updating) {
     return <Loading></Loading>;
   }
-  if (error || gError) {
+  if (error || gError || updateError) {
     signInError = (
       <p className="mb-2 text-red-500">
         <small>{error?.message || gError?.message}</small>
