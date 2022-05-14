@@ -36,16 +36,25 @@ const Login = () => {
                 {...register("email", {
                   required: {
                     value: true,
-                    message: "",
+                    message: "Email is required",
                   },
                   pattern: {
-                    value: /[A-Za-z]{3}/,
-                    message: "error message",
+                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                    message: "Provice a valid email",
                   },
                 })}
               />
               <label class="label">
-                <span class="label-text-alt">Alt label</span>
+                {errors.email?.type === "required" && (
+                  <span class="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
+                {errors.email?.type === "pattern" && (
+                  <span class="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
               </label>
             </div>
 
