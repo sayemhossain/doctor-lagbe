@@ -6,6 +6,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -26,11 +27,7 @@ const Login = () => {
   };
 
   if (loading || gLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <button class="btn loading">loading</button>;
-      </div>
-    );
+    return <Loading></Loading>;
   }
   if (error || gError) {
     signInError = (
