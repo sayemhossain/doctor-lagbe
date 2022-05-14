@@ -41,12 +41,35 @@ const SignUp = () => {
   }
 
   return (
-    <div className="px-5">
+    <div className="px-5 md:px-0">
       <div className="flex justify-center items-center h-screen">
         <div className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="card-title mx-auto">Sign Up</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
+              <div class="form-control w-full max-w-xs">
+                <label class="label">
+                  <span class="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  class="input input-bordered w-full max-w-xs"
+                  {...register("name", {
+                    required: {
+                      value: true,
+                      message: "Name is required",
+                    },
+                  })}
+                />
+                <label class="label">
+                  {errors.name?.type === "required" && (
+                    <span class="label-text-alt text-red-500">
+                      {errors.name.message}
+                    </span>
+                  )}
+                </label>
+              </div>
               <div class="form-control w-full max-w-xs">
                 <label class="label">
                   <span class="label-text">Email</span>
