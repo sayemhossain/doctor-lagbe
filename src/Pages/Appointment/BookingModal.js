@@ -2,20 +2,42 @@ import React from "react";
 import { format } from "date-fns";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 
 const BookingModal = ({ date, treatment, setTreatment }) => {
   const { _id, name, slots } = treatment;
   const [user, loading, error] = useAuthState(auth);
+  const formattedDate = format(date, "PP");
 
   const handleBooking = (e) => {
     e.preventDefault();
 
     const slot = e.target.slot.value;
-    const name = e.target.name.value;
     const phone = e.target.phone.value;
-    const email = e.target.email.value;
-    console.log(_id, slot, name, phone, email);
-    setTreatment(null);
+
+    const booking = {
+      treatmentId: _id,
+      treatment: name,
+      date: formattedDate,
+      slot,
+      patient: user.email,
+      patientName: user.displayName,
+      phone,
+    };
+
+    // fetch booking data from backend
+    fetch("http://localhost:5000/booking", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast("Booked your appointment");
+        setTreatment(null);
+      });
   };
   return (
     <div>
