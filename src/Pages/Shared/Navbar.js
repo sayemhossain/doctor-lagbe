@@ -15,6 +15,9 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
+        <NavLink to="/about">About</NavLink>
+      </li>
+      <li>
         <NavLink to="/appointment">Appointment</NavLink>
       </li>
       <li>
@@ -24,11 +27,10 @@ const Navbar = () => {
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
       <li>
-        <NavLink to="/about">About</NavLink>
-      </li>
-      <li>
         {user ? (
-          <button onClick={logout}>LogOut</button>
+          <button className="btn btn-ghost" onClick={logout}>
+            LogOut
+          </button>
         ) : (
           <NavLink to="/login">Login</NavLink>
         )}
