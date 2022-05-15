@@ -1,17 +1,21 @@
 import React from "react";
 import {
   useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [sendEmailVerification] = useSendEmailVerification(auth);
   const navigate = useNavigate();
   const {
     register,
@@ -21,9 +25,10 @@ const SignUp = () => {
 
   let signInError;
 
-  const onSubmit = (data) => {
-    console.log(data);
-    createUserWithEmailAndPassword(data.email, data.password);
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await sendEmailVerification();
+    toast("Email verification send.");
   };
 
   if (loading || gLoading) {
@@ -158,6 +163,7 @@ const SignUp = () => {
               CONTINUE WITH GOOGLE
             </button>
           </div>
+          <ToastContainer></ToastContainer>
         </div>
       </div>
     </div>
