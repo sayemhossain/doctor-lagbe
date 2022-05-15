@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -25,6 +25,12 @@ const Login = () => {
   let signInError;
   let from = location.state?.from?.pathname || "/";
 
+  useEffect(() => {
+    if (gUser || user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, gUser, from, navigate]);
+
   const onSubmit = async (data) => {
     await signInWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
@@ -40,9 +46,6 @@ const Login = () => {
         <small>{error?.message || gError?.message}</small>
       </p>
     );
-  }
-  if (gUser || user) {
-    navigate(from, { replace: true });
   }
 
   return (
