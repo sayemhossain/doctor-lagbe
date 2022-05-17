@@ -22,7 +22,7 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [token] = useToken(error || gError);
+  const [token] = useToken(gUser || user);
 
   let signInError;
 
@@ -43,7 +43,7 @@ const SignUp = () => {
     );
   }
   if (gUser || user) {
-    navigate("/");
+    // navigate("/");
   }
 
   return (
