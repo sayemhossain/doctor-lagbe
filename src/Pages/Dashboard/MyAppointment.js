@@ -15,8 +15,13 @@ const MyAppointment = () => {
   }, [user]);
 
   return (
-    <div>
-      <h4>my appointment:{appointments.length}</h4>
+    <div className="px-0 md:px-10">
+      <div className="flex justify-between  items-center mb-5">
+        <h4 className="uppercase text-purple-900 font-bold">
+          My Appointment: {appointments.length}
+        </h4>
+        <button className="btn btn-outline">Appointment</button>
+      </div>
       <div class="overflow-x-auto">
         <table class="table w-full">
           <thead>
