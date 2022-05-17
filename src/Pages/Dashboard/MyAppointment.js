@@ -17,7 +17,7 @@ const MyAppointment = () => {
   return (
     <div className="px-0 md:px-10">
       <div className="flex justify-between  items-center mb-5">
-        <h4 className="uppercase text-purple-900 font-bold">
+        <h4 className="uppercase text-purple-900">
           My Appointment: {appointments.length}
         </h4>
         <button className="btn btn-outline">Appointment</button>
@@ -34,9 +34,9 @@ const MyAppointment = () => {
             </tr>
           </thead>
           <tbody>
-            {appointments.map((a) => (
+            {appointments.map((a, index) => (
               <tr>
-                <th>1</th>
+                <th>{index + 1}</th>
                 <td>{a.patientName}</td>
                 <td>{a.date}</td>
                 <td>{a.slot}</td>
