@@ -9,6 +9,7 @@ import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
 import { toast } from "react-toastify";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -21,6 +22,7 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const [token] = useToken(error || gError);
 
   let signInError;
 
