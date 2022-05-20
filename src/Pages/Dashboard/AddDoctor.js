@@ -26,6 +26,7 @@ const AddDoctor = () => {
    * YUP: to validate file---> Yup file validation for react hook forms
    */
   const onSubmit = async (data) => {
+    console.log(data);
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -41,7 +42,7 @@ const AddDoctor = () => {
           const doctor = {
             name: data.name,
             email: data.email,
-            specialty: data.specialty,
+            speciality: data.speciality,
             image: img,
           };
 
