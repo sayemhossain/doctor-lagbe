@@ -21,18 +21,18 @@ const AddDoctor = () => {
     return <Loading></Loading>;
   }
   return (
-    <div>
-      <h3 className="text-xl text-center">Add a New Doctor</h3>
-      <div>
+    <div className="flex justify-center items-center">
+      <div className="card bg-base-100 shadow-xl p-10 w-96 md:w-3/5">
+        <h3 className="text-xl text-center">Add a New Doctor</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full mx-auto max-w-xs md:max-w-sm">
             <label className="label">
               <span className="label-text">Name</span>
             </label>
             <input
               type="text"
-              placeholder="Your Name"
-              className="input input-bordered w-full max-w-xs"
+              placeholder="Doctor Name"
+              className="input input-bordered w-full max-w-xs md:max-w-sm"
               {...register("name", {
                 required: {
                   value: true,
@@ -48,14 +48,14 @@ const AddDoctor = () => {
               )}
             </label>
           </div>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full mx-auto max-w-xs md:max-w-sm">
             <label className="label">
               <span className="label-text">Email</span>
             </label>
             <input
               type="email"
-              placeholder="Your Email"
-              className="input input-bordered w-full max-w-xs"
+              placeholder="Doctor Email"
+              className="input input-bordered w-full max-w-xs  md:max-w-sm"
               {...register("email", {
                 required: {
                   value: true,
@@ -81,11 +81,14 @@ const AddDoctor = () => {
             </label>
           </div>
 
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full mx-auto max-w-xs md:max-w-sm">
             <label className="label">
               <span className="label-text">Specialty</span>
             </label>
-            <select {...register("speciality")} class="select w-full max-w-xs">
+            <select
+              {...register("speciality")}
+              class="select input-bordered w-full max-w-xs  md:max-w-sm"
+            >
               {services.map((service) => (
                 <option key={service._id} value={service.name}>
                   {service.name}
@@ -106,7 +109,35 @@ const AddDoctor = () => {
               )}
             </label>
           </div>
-          <input className="btn w-full max-w-xs" type="submit" value="Add" />
+          <div className="form-control w-full mx-auto max-w-xs md:max-w-sm">
+            <label className="label">
+              <span className="label-text">Photo</span>
+            </label>
+            <input
+              type="file"
+              className="input input-bordered w-full max-w-xs pt-1.5  md:max-w-sm"
+              {...register("image", {
+                required: {
+                  value: true,
+                  message: "Image is required",
+                },
+              })}
+            />
+            <label className="label">
+              {errors.name?.type === "required" && (
+                <span className="label-text-alt text-red-500">
+                  {errors.name.message}
+                </span>
+              )}
+            </label>
+          </div>
+          <div className=" text-center mt-5">
+            <input
+              className="btn w-full max-w-xs md:max-w-sm"
+              type="submit"
+              value="Add"
+            />
+          </div>
         </form>
       </div>
     </div>
