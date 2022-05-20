@@ -14,6 +14,15 @@ const AddDoctor = () => {
   const { data: services, isLoading } = useQuery("services", () =>
     fetch(`http://localhost:5000/service`).then((res) => res.json())
   );
+
+  /**
+   * 3 way to store img
+   * step 1: Third party storage //Free open public storage is ok for practice project
+   * step 2: Your won storage in your won server (file system)
+   * step 3: Mongodb
+   *
+   * YUP: to validate file---> Yup file validation for react hook forms
+   */
   const onSubmit = async (data) => {
     console.log("data: ", data);
   };
