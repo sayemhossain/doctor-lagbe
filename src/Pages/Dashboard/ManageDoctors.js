@@ -1,9 +1,14 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import Loading from "../Shared/Loading";
 
 const ManageDoctors = () => {
-  const { data: doctors, isLoading } = useQuery("doctos", () =>
+  const {
+    data: doctors,
+    isLoading,
+    refetch,
+  } = useQuery("doctos", () =>
     fetch(`http://localhost:5000/doctor`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -13,6 +18,23 @@ const ManageDoctors = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+
+  const handleDelete = (email) => {
+    console.log(email);
+    fetch(`http://localhost:5000/doctor/${email}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          toast.success(`Doctor deleted.`);
+          refetch();
+        }
+      });
+  };
   return (
     <div>
       <h3 className="text-xl text-center mb-5">
@@ -33,7 +55,7 @@ const ManageDoctors = () => {
             </thead>
             <tbody>
               {doctors.map((doctor, index) => (
-                <tr>
+                <tr key={doctor._id}>
                   <th>{index + 1}</th>
                   <td>
                     <img
@@ -46,7 +68,14 @@ const ManageDoctors = () => {
                   <td>{doctor.email}</td>
                   <td>{doctor.speciality}</td>
                   <td>
-                    <button class="btn btn-xs btn-error">Remove</button>
+                    <button
+                      onClick={() => {
+                        handleDelete(doctor.email);
+                      }}
+                      class="btn btn-xs btn-error"
+                    >
+                      Remove
+                    </button>
                   </td>
                 </tr>
               ))}
