@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import Services from "../Home/Services";
 import Loading from "../Shared/Loading";
 
@@ -9,6 +10,7 @@ const AddDoctor = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
   const { data: services, isLoading } = useQuery("services", () =>
@@ -24,7 +26,45 @@ const AddDoctor = () => {
    * YUP: to validate file---> Yup file validation for react hook forms
    */
   const onSubmit = async (data) => {
-    console.log("data: ", data);
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imgStorageKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const img = result.data.url;
+          const doctor = {
+            name: data.name,
+            email: data.email,
+            specialty: data.specialty,
+            image: img,
+          };
+
+          //send to my database
+          fetch(`http://localhost:5000/doctor`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(doctor),
+          })
+            .then((res) => res.json())
+            .then((inserted) => {
+              if (inserted.insertedId) {
+                toast.success("Doctor added successfully.");
+                reset();
+              } else {
+                toast.error("Failed to add doctor.");
+              }
+            });
+        }
+      });
   };
   if (isLoading) {
     return <Loading></Loading>;
