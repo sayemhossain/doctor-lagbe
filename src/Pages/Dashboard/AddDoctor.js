@@ -14,7 +14,7 @@ const AddDoctor = () => {
   const { data: services, isLoading } = useQuery("services", () =>
     fetch(`http://localhost:5000/service`).then((res) => res.json())
   );
-
+  const imgStorageKey = "5fc4392281d108af11683eeab1889e4a";
   /**
    * 3 way to store img
    * step 1: Third party storage //Free open public storage is ok for practice project
