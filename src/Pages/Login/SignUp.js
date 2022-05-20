@@ -3,6 +3,7 @@ import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -16,6 +17,7 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [sendEmailVerification] = useSendEmailVerification(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
   const {
     register,
@@ -29,13 +31,14 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await sendEmailVerification();
+    await updateProfile({ displayName: data.name });
     toast("Email verification send.");
   };
 
-  if (loading || gLoading) {
+  if (loading || gLoading || updating) {
     return <Loading></Loading>;
   }
-  if (error || gError) {
+  if (error || gError || updateError) {
     signInError = (
       <p className="mb-2 text-red-500">
         <small>{error?.message || gError?.message}</small>

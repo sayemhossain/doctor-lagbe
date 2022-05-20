@@ -35,14 +35,12 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     await signInWithEmailAndPassword(data.email, data.password);
-    await updateProfile({ displayName: data.name });
-    navigate("/appointment");
   };
 
-  if (loading || gLoading || updating) {
+  if (loading || gLoading) {
     return <Loading></Loading>;
   }
-  if (error || gError || updateError) {
+  if (error || gError) {
     signInError = (
       <p className="mb-2 text-red-500">
         <small>{error?.message || gError?.message}</small>
