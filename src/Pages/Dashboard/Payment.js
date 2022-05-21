@@ -63,7 +63,7 @@ const Payment = () => {
             <div class="card flex-shrink-0 w-50 max-w-lg shadow-2xl bg-base-100">
               <div class="card-body">
                 <Elements stripe={stripePromise}>
-                  <CheckoutForm />
+                  <CheckoutForm appointment={appointment} />
                 </Elements>
                 <p className="mt-3">
                   Patience Pays..Is true! But the greater truth is that it takes
