@@ -28,8 +28,14 @@ const Payment = () => {
   return (
     <div>
       <div>
-        <div class="hero min-h-screen bg-base-200">
-          <div class="hero-content flex-col">
+        <div class="min-h-screen w-full bg-base-100">
+          <h4 className="text-xl text-center pt-10 uppercase text-red-400 font-bold">
+            Payment leaderboard
+          </h4>
+          <p className="text-center pb-10">
+            <small>Gratefulness is a payment everyone can afford.</small>
+          </p>
+          <div class="hero-content flex-col md:flex-row">
             <div class="card w-50 max-w-lg bg-base-100 shadow-xl">
               <div class="card-body">
                 <p className="">
@@ -59,10 +65,9 @@ const Payment = () => {
                 <Elements stripe={stripePromise}>
                   <CheckoutForm />
                 </Elements>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                  delectus laboriosam velit veritatis. Aspernatur repellat
-                  consequuntur porro eius fugiat minima!
+                <p className="mt-5">
+                  Patience Pays..Is true! But the greater truth is that it takes
+                  advance payment before it pays you in return!
                 </p>
               </div>
             </div>
