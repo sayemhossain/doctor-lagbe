@@ -57,6 +57,7 @@ const MyAppointment = () => {
               <th>Date</th>
               <th>Time</th>
               <th>Treatment</th>
+              <th>Payment</th>
             </tr>
           </thead>
           <tbody>
@@ -67,6 +68,7 @@ const MyAppointment = () => {
                 <td>{a.date}</td>
                 <td>{a.slot}</td>
                 <td>{a.treatment}</td>
+                <td>{a.price}</td>
               </tr>
             ))}
           </tbody>
