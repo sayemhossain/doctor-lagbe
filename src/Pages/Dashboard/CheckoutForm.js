@@ -34,7 +34,11 @@ const CheckoutForm = () => {
             },
           }}
         />
-        <button type="submit" disabled={!stripe}>
+        <button
+          type="submit"
+          className="btn btn-success btn-xs mt-3 px-5"
+          disabled={!stripe}
+        >
           Pay
         </button>
       </form>
