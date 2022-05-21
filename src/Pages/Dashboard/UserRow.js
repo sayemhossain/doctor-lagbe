@@ -24,7 +24,7 @@ const UserRow = ({ user, index, refetch }) => {
       });
   };
   return (
-    <tr className="active">
+    <tr>
       <th>{index + 1}</th>
       <td>{email}</td>
       <td>
