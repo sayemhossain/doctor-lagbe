@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import Loading from "../Shared/Loading";
+import DeleteConfirmModal from "./DeleteConfirmModal";
 
 const ManageDoctors = () => {
+  const [deletingDoctor, setDeletingDoctor] = useState(false);
   const {
     data: doctors,
     isLoading,
@@ -31,6 +33,7 @@ const ManageDoctors = () => {
       .then((data) => {
         if (data.deletedCount) {
           toast.success(`Doctor deleted.`);
+          setDeletingDoctor(null);
           refetch();
         }
       });
@@ -68,14 +71,15 @@ const ManageDoctors = () => {
                   <td>{doctor.email}</td>
                   <td>{doctor.speciality}</td>
                   <td>
-                    <button
+                    <label
                       onClick={() => {
-                        handleDelete(doctor.email);
+                        setDeletingDoctor(doctor);
                       }}
+                      for="delete-confirm-modal"
                       class="btn btn-xs btn-error"
                     >
                       Remove
-                    </button>
+                    </label>
                   </td>
                 </tr>
               ))}
@@ -83,6 +87,12 @@ const ManageDoctors = () => {
           </table>
         </div>
       </div>
+      {deletingDoctor && (
+        <DeleteConfirmModal
+          deletingDoctor={deletingDoctor}
+          handleDelete={handleDelete}
+        ></DeleteConfirmModal>
+      )}
     </div>
   );
 };
