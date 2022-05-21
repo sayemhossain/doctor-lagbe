@@ -53,6 +53,7 @@ const CheckoutForm = () => {
           </button>
         </div>
       </form>
+      {cardError && <p className="text-red-500">{cardError}</p>}
     </div>
   );
 };

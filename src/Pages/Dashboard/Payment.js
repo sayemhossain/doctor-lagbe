@@ -65,7 +65,7 @@ const Payment = () => {
                 <Elements stripe={stripePromise}>
                   <CheckoutForm />
                 </Elements>
-                <p className="mt-5">
+                <p className="mt-3">
                   Patience Pays..Is true! But the greater truth is that it takes
                   advance payment before it pays you in return!
                 </p>
