@@ -30,7 +30,7 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
     fetch("https://stormy-beyond-12829.herokuapp.com/booking", {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "content-type": "application/jso",
       },
       body: JSON.stringify(booking),
     })
