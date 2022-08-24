@@ -15,12 +15,7 @@ const Payment = () => {
   const url = `http://localhost:5000/booking/${id}`;
 
   const { data: appointment, isLoading } = useQuery(["booking", id], () =>
-    fetch(url, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
+    fetch(url).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;

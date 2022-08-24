@@ -11,18 +11,14 @@ const MyAppointment = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
+  console.log(user.email);
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/booking?patient=${user.email}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
+      fetch(`http://localhost:5000/booking?patient=${user.email}`)
         .then((res) => {
           if (res.status === 401 || res.status == 401) {
             signOut(auth);
-            localStorage.removeItem("accessToken");
+
             navigate("/");
           }
           return res.json();
