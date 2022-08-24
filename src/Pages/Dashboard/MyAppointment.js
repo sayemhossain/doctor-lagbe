@@ -13,15 +13,12 @@ const MyAppointment = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(
-        `https://stormy-beyond-12829.herokuapp.com/booking?patient=${user.email}`,
-        {
-          method: "GET",
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        }
-      )
+      fetch(`http://localhost:5000/booking?patient=${user.email}`, {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
         .then((res) => {
           if (res.status === 401 || res.status == 401) {
             signOut(auth);

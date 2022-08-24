@@ -27,7 +27,7 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
     };
 
     // fetch booking data from backend
-    fetch("https://stormy-beyond-12829.herokuapp.com/booking", {
+    fetch("http://localhost:5000/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",

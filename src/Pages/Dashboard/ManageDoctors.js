@@ -11,7 +11,7 @@ const ManageDoctors = () => {
     isLoading,
     refetch,
   } = useQuery("doctos", () =>
-    fetch(`https://stormy-beyond-12829.herokuapp.com/doctor`, {
+    fetch(`http://localhost:5000/doctor`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -23,7 +23,7 @@ const ManageDoctors = () => {
 
   const handleDelete = (email) => {
     console.log(email);
-    fetch(`https://stormy-beyond-12829.herokuapp.com/doctor/${email}`, {
+    fetch(`http://localhost:5000/doctor/${email}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
