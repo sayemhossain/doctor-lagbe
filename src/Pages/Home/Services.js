@@ -10,23 +10,23 @@ const Services = () => {
       _id: 1,
       name: "Fluoride Treatment",
       img: fluoride,
-      text: "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+      text: "Fluoride treatments are typically professional treatments containing a high concentration of fluoride that a dentist or hygienist will apply to a person's teeth to improve health and reduce the risk of cavities.",
     },
     {
       _id: 2,
       name: "Cavity Filling",
       img: cavity,
-      text: "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+      text: "Once the decay is removed, there is still a hole in the tooth that will cause problems, unless a filling is placed. Fillings prevent bacteria or plaque from building up inside cavities, which could lead to serious infections..",
     },
     {
       _id: 3,
       name: "Teeth Whitening",
       img: Whitening,
-      text: "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+      text: "The actual whitening process involves the dentist applying a gel made of 15% to 35% hydrogen peroxide to your front teeth. Hydrogen peroxide can penetrate the porous outer layer of your teeth and break apart stain compounds.",
     },
   ];
   return (
-    <div className="my-28 px-5">
+    <div className="mt-20 px-5 md:px-20">
       <div className="text-center">
         <h4 className="text-secondary uppercase">Our Services</h4>
         <h2 className="text-3xl">Services We Provide</h2>
