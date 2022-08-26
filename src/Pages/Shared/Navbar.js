@@ -42,7 +42,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-100 px-0 md:px-10 lg:px-20">
+      <div className="navbar bg-base-100 px-0 md:px-10 lg:px-20 md:py-5">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -68,7 +68,7 @@ const Navbar = () => {
               {menuItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl ">Doctor Portal</a>
+          <a className="btn btn-ghost normal-case text-xl ">Doctor Lagbe</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">{menuItems}</ul>
