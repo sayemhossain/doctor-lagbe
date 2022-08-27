@@ -19,7 +19,7 @@ const Testimonials = () => {
       <div className="flex justify-between">
         <div>
           <h4 className="text-xl text-primary">Testimonial</h4>
-          <h2 className="text-2xl ">What Our Patients Sas</h2>
+          <h2 className="text-2xl ">What Our Patients Says</h2>
         </div>
         <div>
           <img className="w-16 lg:w-48 " src={quote} alt="" />
