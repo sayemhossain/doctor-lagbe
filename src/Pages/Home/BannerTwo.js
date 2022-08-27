@@ -23,7 +23,7 @@ const BannerTwo = () => {
               most commonly focused on dentition as well as the oral mucosa.
             </p>
             <a target="_blank" href="https://en.wikipedia.org/wiki/Dental_care">
-              <PrimaryButton>get started</PrimaryButton>
+              <PrimaryButton>Read more</PrimaryButton>
             </a>
           </div>
         </div>

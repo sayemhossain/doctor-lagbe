@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
+import MyAppointmentDetails from "./MyAppointmentDetails";
 
 const MyAppointment = () => {
   const [appointments, setAppointments] = useState([]);
@@ -28,7 +29,7 @@ const MyAppointment = () => {
           setLoading(false);
         });
     }
-  }, [user]);
+  }, [user, appointments]);
   if (loading) {
     return <Loading></Loading>;
   }
@@ -50,38 +51,17 @@ const MyAppointment = () => {
               <th>Date</th>
               <th>Time</th>
               <th>Treatment</th>
+              <th>Cancel Booking</th>
               <th>Payment</th>
             </tr>
           </thead>
           <tbody>
-            {appointments?.map((a, index) => (
-              <tr key={a._id}>
-                <th>{index + 1}</th>
-                <td>{a.patientName}</td>
-                <td>{a.date}</td>
-                <td>{a.slot}</td>
-                <td>{a.treatment}</td>
-                <td>
-                  {a.price && !a.paid && (
-                    <Link to={`/dashboard/payment/${a._id}`}>
-                      <button className="btn btn-xs btn-success px-3">
-                        pay
-                      </button>
-                    </Link>
-                  )}
-                  {a.price && a.paid && (
-                    <div>
-                      <p>
-                        <span className="text-success">Paid</span>
-                      </p>
-                      <p>
-                        Transaction id:{" "}
-                        <span className="text-success">{a.transactionId}</span>
-                      </p>
-                    </div>
-                  )}
-                </td>
-              </tr>
+            {appointments?.map((appointment, index) => (
+              <MyAppointmentDetails
+                key={appointment._id}
+                index={index}
+                appointment={appointment}
+              ></MyAppointmentDetails>
             ))}
           </tbody>
         </table>

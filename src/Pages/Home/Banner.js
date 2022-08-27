@@ -14,9 +14,9 @@ const Banner = () => {
               Your New Smile Starts <br /> Here
             </h1>
             <p className="py-6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the
+              We practice medicine that our historical ancestors could only
+              dream of, and we have access to amazing treatments and cures for
+              our patients on a daily basis.
             </p>
             <Link to="/appointment">
               <PrimaryButton>Book Appointment</PrimaryButton>
