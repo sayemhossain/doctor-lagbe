@@ -18,7 +18,7 @@ const Testimonials = () => {
     <section className="py-10 px-5 md:px-20">
       <div className="flex justify-between">
         <div>
-          <h4 className="text-xl text-primary">Testimonia</h4>
+          <h4 className="text-xl text-primary">Testimonial</h4>
           <h2 className="text-2xl ">What Our Patients Says</h2>
         </div>
         <div>
