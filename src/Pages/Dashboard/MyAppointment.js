@@ -15,7 +15,9 @@ const MyAppointment = () => {
   console.log(user.email);
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/booking?patient=${user.email}`)
+      fetch(
+        `https://desolate-anchorage-09734.herokuapp.com/booking?patient=${user.email}`
+      )
         .then((res) => {
           if (res.status === 401 || res.status == 401) {
             signOut(auth);

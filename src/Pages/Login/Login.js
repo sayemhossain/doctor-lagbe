@@ -128,7 +128,7 @@ const Login = () => {
               />
             </form>
             <p className="text-sm text-center">
-              New to Doctors Portal?
+              New to Doctor Lagbe?
               <Link className="text-primary" to="/signup">
                 {" "}
                 Create new account

@@ -23,8 +23,8 @@ const Banner = () => {
             </Link>
           </div>
           <img
-            src={homeImg}
-            className="w-full md:max-w-lg rounded-lg shadow-2xl h-full"
+            src="https://images.thedailystar.net/sites/default/files/styles/very_big_201/public/feature/images/relationship_2.jpg?itok=yoJTjReX"
+            className="w-full md:max-w-xl rounded-lg shadow-2xl h-full"
           />
         </div>
       </div>

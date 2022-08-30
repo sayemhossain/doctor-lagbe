@@ -8,10 +8,10 @@ const BannerTwo = () => {
       <div className="hero min-h-screen bg-base-100 px-0 md:px-10 lg:px-20">
         <div className="hero-content flex-col lg:flex-row">
           <img
-            src={dentalImg}
-            className="max-w-xs md:max-w-sm rounded-lg shadow-2xl"
+            src="https://picca.org.au/wp-content/uploads/2019/10/71144998_1275046959321792_8715862049571209216_o.jpg"
+            className="max-w-xs md:max-w-lg rounded-lg shadow-2xl"
           />
-          <div className="mx-o md:mx-20 py-10">
+          <div className="mx-o md:mx-10 py-10">
             <h1 className="text-4xl font-bold">
               Exceptional Dental <br /> Care, on Your Terms
             </h1>

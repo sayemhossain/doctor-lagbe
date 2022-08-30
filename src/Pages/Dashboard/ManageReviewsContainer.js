@@ -5,7 +5,7 @@ const ManageReviewsContainer = ({ review, index }) => {
   const { _id, name, reviewtxt, rating, location } = review;
 
   const deleteReview = () => {
-    fetch(`http://localhost:5000/reviews/${_id}`, {
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/reviews/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
