@@ -12,7 +12,6 @@ const MyAppointment = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
-  console.log(user.email);
   useEffect(() => {
     if (user) {
       fetch(`http://localhost:5000/booking?patient=${user.email}`)

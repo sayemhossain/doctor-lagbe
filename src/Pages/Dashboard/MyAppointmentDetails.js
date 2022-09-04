@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 const MyAppointmentDetails = ({ appointment, index }) => {
@@ -27,25 +28,11 @@ const MyAppointmentDetails = ({ appointment, index }) => {
         </button>
       </td>
       <td>
-        {/* {a.price && !a.paid && (
-                    <Link to={`/dashboard/payment/${a._id}`}>
-                      <button className="btn btn-xs btn-success px-3">
-                        pay
-                      </button>
-                    </Link>
-                  )}
-                  {a.price && a.paid && (
-                    <div>
-                      <p>
-                        <span className="text-success">Paid</span>
-                      </p>
-                      <p>
-                        Transaction id:{" "}
-                        <span className="text-success">{a.transactionId}</span>
-                      </p>
-                    </div>
-                  )} */}
-        <button className="btn btn-xs btn-success px-3">Pay</button>
+        <Link to={`/dashboard/payment/${_id}`}>
+          <div className="flex justify-center">
+            <button className="btn btn-primary px-8 btn-xs">pay</button>
+          </div>
+        </Link>
       </td>
       <ToastContainer></ToastContainer>
     </tr>

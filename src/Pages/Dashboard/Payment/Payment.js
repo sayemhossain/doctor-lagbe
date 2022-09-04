@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
-import CustomLink from "../../../shared/CustomLink/CustomLink";
+import CustomLink from "../../Shared/CustomLink";
 
 const Payment = () => {
   const { id } = useParams();
@@ -10,10 +10,11 @@ const Payment = () => {
 
   const [order, setOrder] = useState({});
   useEffect(() => {
-    fetch(`https://stark-shelf-45913.herokuapp.com/order/${id}`)
+    fetch(`http://localhost:5000/booking/${id}`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, []);
+  console.log(order);
   return (
     <div className=" md:px-20 pb-20 bg-base-100">
       <div className="text-center py-5">
@@ -24,23 +25,18 @@ const Payment = () => {
           Payment leaderboard
         </h1>
       </div>
-      <div className="card bg-gray-500 text-gray-200 mb-3 rounded-none ">
-        <div class=" p-2 flex items-center">
-          <div>
-            <img className="w-36 mr-5" src={order.img} alt="" />
-          </div>
+      <div className="card bg-gray-500 text-gray-200 mb-3 rounded-none">
+        <div class=" p-2 flex items-center justify-center text-center ">
           <div>
             <h2>
               <span className="text-sm">
-                Hello, {order.customerNamer}
+                Hello, {order.patientName}
                 <br></br>
               </span>{" "}
-              <span className="font-bold">
-                Please pay for : {order.productName}
-              </span>
+              <span className="">Please pay for : {order.treatment}</span>
             </h2>
-            <p>Order quantity : {order.orderQuantity}</p>
-            <p>Total cost : {order.totalCost} tk</p>
+            <p>Your Slot : {order.slot}</p>
+            <p>Total cost : {order.price} tk</p>
           </div>
         </div>
       </div>
@@ -57,12 +53,6 @@ const Payment = () => {
             to="nagad"
           >
             Nagad
-          </CustomLink>
-          <CustomLink
-            className=" ml-5 uppercase text-accent font-semibold"
-            to="rocket"
-          >
-            Rocket
           </CustomLink>
         </nav>
         <Outlet></Outlet>

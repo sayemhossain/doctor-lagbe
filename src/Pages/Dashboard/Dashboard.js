@@ -51,12 +51,18 @@ const Dashboard = () => {
                 <Link to="/dashboard/review">My Reviews</Link>
               </li>
               <li>
+                <Link to="/dashboard/paymentstatus">Payment Status</Link>
+              </li>
+              <li>
                 {admin && (
                   <>
                     <Link to="/dashboard/addDoctor">Add Doctor</Link>
                     <Link to="/dashboard/manageDoctors">Manage Doctors</Link>
                     <Link to="/dashboard/manageReviews">Manage Reviews</Link>
-                    <Link to="/dashboard/users">All Users</Link>
+                    <Link to="/dashboard/managecontact">Manage Contact</Link>
+                    <Link to="/dashboard/managepayment">Manage Payment</Link>
+                    <Link to="/dashboard/alluser">All Users</Link>
+                    <Link to="/dashboard/AllAdmin">All Admin</Link>
                   </>
                 )}
               </li>

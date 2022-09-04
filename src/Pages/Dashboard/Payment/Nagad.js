@@ -9,35 +9,33 @@ const Nagad = () => {
 
   const [order, setOrder] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/order/${id}`)
+    fetch(`http://localhost:5000/booking/${id}`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, []);
 
   const handlePayment = (e) => {
     e.preventDefault();
-    const bkashNumber = e.target.number.value;
+    const number = e.target.number.value;
     const transId = e.target.transId.value;
-    console.log(bkashNumber);
 
-    const productName = order.productName;
-
-    const customerNamer = order.customerNamer;
-    const userEmail = order.user;
-    const orderQuantity = order.orderQuantity;
-    const totalCost = order.totalCost;
-    const address = order.address;
+    const treatment = order.treatment;
+    const treatmentId = order.treatmentId;
+    const patient = order.patient;
+    const price = order.price;
+    const date = order.date;
+    const slot = order.slot;
     const method = "Nagad";
 
     const paymentData = {
-      productName,
-      bkashNumber,
+      treatment,
+      number,
       transId,
-      customerNamer,
-      userEmail,
-      orderQuantity,
-      totalCost,
-      address,
+      treatmentId,
+      patient,
+      price,
+      date,
+      slot,
       method,
     };
     fetch(`http://localhost:5000/payment`, {
@@ -65,14 +63,7 @@ const Nagad = () => {
               Nagad Number: 01625-511680
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 p-2">
-            <div>
-              <img
-                className="h-full"
-                src="https://smuct.edu.bd/wp-content/uploads/2021/06/Payment_Process_USSD.jpg-1024x576.jpeg"
-                alt=""
-              />
-            </div>
+          <div className="flex items-center justify-center gap-10 p-2">
             <div>
               <div className="bg-base-100 p-6">
                 <form action="" onSubmit={handlePayment}>
@@ -138,7 +129,10 @@ const Nagad = () => {
                       </div>
                     </div>
                     <div className="mt-2">
-                      <button type="submit" className="btn  btn-sm w-full">
+                      <button
+                        type="submit"
+                        className="btn  btn-primary btn-sm w-full"
+                      >
                         Submit
                       </button>
                     </div>
