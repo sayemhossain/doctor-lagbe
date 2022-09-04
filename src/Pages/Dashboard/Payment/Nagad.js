@@ -9,7 +9,7 @@ const Nagad = () => {
 
   const [order, setOrder] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/booking/${id}`)
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/booking/${id}`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, []);
@@ -38,7 +38,7 @@ const Nagad = () => {
       slot,
       method,
     };
-    fetch(`http://localhost:5000/payment`, {
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/payment`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

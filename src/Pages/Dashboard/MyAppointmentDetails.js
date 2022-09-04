@@ -6,7 +6,7 @@ const MyAppointmentDetails = ({ appointment, index }) => {
   const { _id, patientName, date, slot, treatment } = appointment;
 
   const handleDeleteOrder = () => {
-    fetch(`http://localhost:5000/appointment/${_id}`, {
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/appointment/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -27,7 +27,7 @@ const BookingModal = ({ date, treatment, setTreatment, refetch }) => {
     };
 
     // fetch booking data from backend
-    fetch("http://localhost:5000/booking", {
+    fetch("https://desolate-anchorage-09734.herokuapp.com/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",

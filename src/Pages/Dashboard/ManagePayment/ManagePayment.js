@@ -5,7 +5,7 @@ const ManagePayment = () => {
   const [payments, setPayments] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/payments`)
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/payments`)
       .then((res) => res.json())
       .then((data) => setPayments(data));
   }, [payments]);

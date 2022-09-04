@@ -5,7 +5,7 @@ const ManageReviews = () => {
   const [reviews, setReiews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews`)
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/reviews`)
       .then((res) => res.json())
       .then((data) => setReiews(data));
   }, [reviews]);

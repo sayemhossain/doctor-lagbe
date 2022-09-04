@@ -9,7 +9,7 @@ const PaymentStatus = () => {
   const email = user?.email;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/payments/${email}`)
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/payments/${email}`)
       .then((res) => res.json())
       .then((data) => setPayments(data));
   }, []);

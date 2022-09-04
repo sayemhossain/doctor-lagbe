@@ -15,7 +15,7 @@ const ManagePaymentContainer = ({ payment, index }) => {
   } = payment;
 
   const deletePayment = () => {
-    fetch(`http://localhost:5000/payments/${_id}`, {
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/payments/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -15,7 +15,7 @@ const MyReview = () => {
     const rating = e.target.rating.value;
 
     const review = { name, email, reviewtxt, location, rating };
-    fetch(`http://localhost:5000/reviews`, {
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/reviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -4,7 +4,7 @@ import ManageContactMessageContainer from "./ManageContactMessageContainer";
 const ManageContactMessage = () => {
   const [contacts, setContacts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/contact`)
+    fetch(`https://desolate-anchorage-09734.herokuapp.com/contact`)
       .then((res) => res.json())
       .then((data) => setContacts(data));
   }, []);

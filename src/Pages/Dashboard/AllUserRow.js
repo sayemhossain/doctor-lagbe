@@ -6,12 +6,15 @@ import { toast, ToastContainer } from "react-toastify";
 const AllUserRow = ({ user, index }) => {
   const { email, role, subRole } = user;
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
-      method: "PUT",
-      headers: {
-        "contant-type": "application/json",
-      },
-    })
+    fetch(
+      `https://desolate-anchorage-09734.herokuapp.com/user/admin/${email}`,
+      {
+        method: "PUT",
+        headers: {
+          "contant-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => alert("Make admin done"));
   };
