@@ -11,9 +11,7 @@ const ManageDoctors = () => {
     isLoading,
     refetch,
   } = useQuery("doctos", () =>
-    fetch(`https://desolate-anchorage-09734.herokuapp.com/doctor`).then((res) =>
-      res.json()
-    )
+    fetch(`http://localhost:5000/doctor`).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
@@ -21,7 +19,7 @@ const ManageDoctors = () => {
 
   const handleDelete = (email) => {
     console.log(email);
-    fetch(`https://desolate-anchorage-09734.herokuapp.com/doctor/${email}`, {
+    fetch(`http://localhost:5000/doctor/${email}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

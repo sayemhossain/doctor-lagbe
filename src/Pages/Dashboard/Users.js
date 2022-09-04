@@ -9,7 +9,7 @@ const Users = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://desolate-anchorage-09734.herokuapp.com/user", {
+    fetch("http://localhost:5000/user", {
       method: "GET",
     }).then((res) => res.json())
   );

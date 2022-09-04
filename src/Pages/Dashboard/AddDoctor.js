@@ -14,9 +14,7 @@ const AddDoctor = () => {
   } = useForm();
 
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch(`https://desolate-anchorage-09734.herokuapp.com/service`).then(
-      (res) => res.json()
-    )
+    fetch(`http://localhost:5000/service`).then((res) => res.json())
   );
   const imgStorageKey = "5fc4392281d108af11683eeab1889e4a";
   /**
@@ -49,7 +47,7 @@ const AddDoctor = () => {
           };
 
           //send to my database
-          fetch(`https://desolate-anchorage-09734.herokuapp.com/doctor`, {
+          fetch(`http://localhost:5000/doctor`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

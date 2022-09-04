@@ -9,7 +9,7 @@ const Testimonials = () => {
   const [reviews, setReiews] = useState([]);
 
   useEffect(() => {
-    fetch(`https://desolate-anchorage-09734.herokuapp.com/reviews`)
+    fetch(`http://localhost:5000/reviews`)
       .then((res) => res.json())
       .then((data) => setReiews(data));
   }, []);

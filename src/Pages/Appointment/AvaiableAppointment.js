@@ -15,15 +15,15 @@ const AvaiableAppointment = ({ date }) => {
     isLoading,
     refetch,
   } = useQuery(["available", formattedDate], () =>
-    fetch(
-      `https://desolate-anchorage-09734.herokuapp.com/available?date=${formattedDate}`
-    ).then((res) => res.json())
+    fetch(`http://localhost:5000/available?date=${formattedDate}`).then((res) =>
+      res.json()
+    )
   );
   if (isLoading) {
     return <Loading></Loading>;
   }
   // useEffect(() => {
-  //   fetch(`https://desolate-anchorage-09734.herokuapp.com/available?date=${formattedDate}`)
+  //   fetch(`http://localhost:5000/available?date=${formattedDate}`)
   //     .then((res) => res.json())
   //     .then((data) => setSevices(data));
   // }, [formattedDate]);
